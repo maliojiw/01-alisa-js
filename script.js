@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceInput = document.getElementById('priceInput');
     const imgUrlInput = document.getElementById('imgUrlInput');
     const addButton = document.getElementById('addButton');
+    //const addCart = document.getElementById('addCart');
     const itemList = document.getElementById('itemList');
     const totalPriceElement = document.getElementById('totalPrice');
     const checkOut = document.getElementById('checkOut');
@@ -10,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectAllButton = document.getElementById('selectAllButton');
     const disselectAllButton = document.getElementById('dis-selectAllButton');
     let cartItems = [];
+
+    
 
     const calculateTotalPrice = () => {
         let totalPrice = 0;
@@ -80,6 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
         newItem.appendChild(quantityInput);
+
+        
     
         itemList.appendChild(newItem);
     };
@@ -157,10 +162,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     itemList.addEventListener('change', calculateTotalPrice);
-    
-    itemList.addEventListener('change', calculateTotalPrice);
 
+    
+    const removeButton = document.getElementById('remove');
+    removeButton.addEventListener('click', () => {
+        console.log("Remove button clicked."); 
+        alert('You touch it, you buy it!');
+    });
 });
+    
+
+
+
+
   
     
     
