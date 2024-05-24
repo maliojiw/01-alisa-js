@@ -90,26 +90,26 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
 
-    const addToCart = () => {
-        const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked');
-        checkedItems.forEach(item => {
-            const listItem = item.closest('li');
-            const nameSpan = listItem.querySelector('span');
-            const priceSpan = listItem.querySelector('.priceSpan');
-            const quantityInput = listItem.querySelector('.quantityInput');
-            const name = nameSpan.textContent.replace('Name: ', '').replace(', ', '');
-            const price = parseFloat(priceSpan.textContent.replace('Price: ', '').replace(' $', ''));
-            const imgUrl = listItem.querySelector('img').src;
-            const quantity = parseInt(quantityInput.value);
-            for (let i = 0; i < quantity; i++) {
-                if (i >= 0 )
-                cartItems.push({ id: Date.now(), name: name, price: price, imgUrl: imgUrl, quantity: quantity });
-                else 
-                i = 0
-            }
-        });
-        renderCart();
-    };
+    //const addToCart = () => {
+       // const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked');
+        //checkedItems.forEach(item => {
+           // const listItem = item.closest('li');
+            //const nameSpan = listItem.querySelector('span');
+            //const priceSpan = listItem.querySelector('.priceSpan');
+           // const quantityInput = listItem.querySelector('.quantityInput');
+            //const name = nameSpan.textContent.replace('Name: ', '').replace(', ', '');
+            //const price = parseFloat(priceSpan.textContent.replace('Price: ', '').replace(' $', ''));
+           // const imgUrl = listItem.querySelector('img').src;
+           // const quantity = parseInt(quantityInput.value);
+           // for (let i = 0; i < quantity; i++) {
+          //      if (i >= 0 )
+           //     cartItems.push({ id: Date.now(), name: name, price: price, imgUrl: imgUrl, quantity: quantity });
+           //     else 
+           //     i = 0
+         //   }
+     //  });
+     //   renderCart();
+   // };
     
     const renderCart = () => {
         cartList.innerHTML = '';
