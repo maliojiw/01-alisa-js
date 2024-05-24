@@ -3,85 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM Manipulation Example</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>JsExam</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script defer src="script.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <nav>
-        <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer">
-            <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
-        </span>
-        <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[80px] overflow-y-auto text-center bg-gray-900">
-            <div class="text-gray-100 text-xl">
-                <div class="p-2.5 mt-1 flex items-center justify-center">
-                    <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
-                    <h1 class="font-bold text-gray-200 text-[12px] ml-1">Tailwind</h1>
-                    <i class="bi bi-x cursor-pointer ml-4 lg:hidden"></i>
-                </div>
-                <div class="my-2 bg-gray-600 h-[1px]"></div>
+    
+    <nav class="flex items-center justify-between bg-gray-900 py-4 px-6">
+        <div class="flex items-center space-x-4">
+            <button class="text-white text-3xl focus:outline-none">
+                <i class="bi bi-filter-left"></i>
+            </button>
+            <div>
+                <h1 class="text-2xl font-bold text-gray-100">Kai Kai</h1>
             </div>
-            <div class="p-2.5 flex items-center justify-center rounded-md px-2 duration-300 cursor-pointer bg-gray-700 text-white">
-                <i class="bi bi-search text-sm"></i>
-                <input type="text" placeholder="Search" class="text-[12px] ml-1 w-full bg-transparent focus:outline-none">
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="relative">
+                <input type="text" placeholder="Search" class="bg-gray-800 text-gray-100 py-2 px-4 rounded-lg focus:outline-none">
+                <i class="bi bi-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
             </div>
-            <a href="#" class="block">
-                <div class="p-2.5 mt-3 flex items-center justify-center rounded-md px-2 duration-300 hover:bg-blue-600 text-white">
-                    <i class="bi bi-house-door-fill"></i>
-                    <span class="text-[12px] ml-1 text-gray-200 font-bold">Home</span>
-                </div>
+            <a href="#" class="text-gray-100 text-lg">
+                <i class="bi bi-house-door-fill"></i> Home
             </a>
-            <a href="#" class="block">
-                <div class="p-2.5 mt-3 flex items-center justify-center rounded-md px-2 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                    <i class="bi bi-bookmark-fill"></i>
-                    <span class="text-[12px] ml-1 text-gray-200 font-bold">Cart</span>
-                </div>
+            <a href="#" class="text-gray-100 text-lg">
+                <i class="bi bi-bookmark-fill"></i> Cart
             </a>
-            <div class="my-4 bg-gray-600 h-[1px]"></div>
-            <div class="p-2.5 mt-3 flex items-center justify-center rounded-md px-2 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span class="text-[12px] ml-1 text-gray-200 font-bold">Logout</span>
-            </div>
+            <button class="text-gray-100 text-lg">
+                <i class="bi bi-box-arrow-in-right"></i> Logout
+            </button>
         </div>
     </nav>
-    <section class="ml-60">   
-    <div class="container mx-auto mt-10">
-        <h1 class="text-4xl font-bold mb-40 text-center">Dashboard</h1>
-        <div class="mb-5">
-            <div class="flex items-center space-x-4">
-                <div class="flex flex-col">
-                    <p class="font-bold">Name</p>
-                    <input type="text" id="nameInput" class="border p-2 rounded" placeholder="Enter some text">
-                </div>
-                <div class="flex flex-col">
-                    <p class="font-bold">Price</p>
-                    <input type="text" id="priceInput" class="border p-2 rounded" placeholder="Enter some text">
-                </div>
-                <div class="flex flex-col">
-                    <p class="font-bold">Img URL</p>
-                    <input type="text" id="imgUrlInput" class="border p-2 rounded" placeholder="Enter some text">
-                </div>
+
+    <!-- Dashboard Section -->
+    <section class="container mx-auto mt-10">
+        <h1 class="text-4xl font-bold mb-10 text-center">Dashboard</h1>
+        <div class="mb-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <div class="border rounded-lg p-4">
+                <label for="nameInput" class="block mb-2 font-bold">Name</label>
+                <input type="text" id="nameInput" class="border p-2 rounded w-full" placeholder="Enter some text">
+            </div>
+            <div class="border rounded-lg p-4">
+                <label for="priceInput" class="block mb-2 font-bold">Price</label>
+                <input type="text" id="priceInput" class="border p-2 rounded w-full" placeholder="Enter some text">
+            </div>
+            <div class="border rounded-lg p-4">
+                <label for="imgUrlInput" class="block mb-2 font-bold">Img URL</label>
+                <input type="text" id="imgUrlInput" class="border p-2 rounded w-full" placeholder="Enter some text">
             </div>
         </div>
-        
-        <div class="mb-5">
-            <button id="addButton" class="bg-blue-500 text-white px-4 py-2 rounded">Add to List</button>
+    
+        <div class="mb-8 text-center">
+            <button id="addButton" class="bg-blue-500 text-white px-6 py-3 rounded-lg">Add to List</button>
         </div>
-
+    
+        <!-- Product List Section -->
         <section>
-        <h1 class="text-4xl font-bold mb-10 text-center">Product List</h1>
-        <ul id="itemList" class="pl-5 list-none"></ul>
+            <h1 class="text-4xl font-bold mb-10 text-center">Product List</h1>
+            <button id="selectAllButton" class="bg-blue-200 text-white px-4 py-2 rounded mt-4 mb-8">All</button>
+            <button id="dis-selectAllButton" class="bg-blue-200 text-white px-4 py-2 rounded mt-4 mb-8">Clear</button>
+            <ul id="itemList" class="list-none"></ul>
         </section>
-    </div>
+    
+      
+    </section>
+    
 
-    <section>
-        <div class="mt-10 mb-10 text-center">
-            <h2 id="totalPrice" class="text-2xl font-bold">Total Price: 0.00 $</h2>
-        </div>
-    </section>  
-    
-    
-    </sections>
+    <!-- Total Price Section -->
+    <section class="mt-16 mb-10 text-center">
+        <h2 id="totalPrice" class="text-3xl font-bold mb-4">Total Price: $0.00</h2>
+        <button id="checkOut" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 ">Check out</button>
+    </section>
+
 </body>
 </html>
