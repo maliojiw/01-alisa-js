@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav>
+        <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer">
+            <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+        </span>
+        <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[80px] overflow-y-auto text-center bg-gray-900">
+            <div class="text-gray-100 text-xl">
+                <div class="p-2.5 mt-1 flex items-center justify-center">
+                    <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
+                    <h1 class="font-bold text-gray-200 text-[12px] ml-1">Tailwind</h1>
+                    <i class="bi bi-x cursor-pointer ml-4 lg:hidden"></i>
+                </div>
+                <div class="my-2 bg-gray-600 h-[1px]"></div>
+            </div>
+            <div class="p-2.5 flex items-center justify-center rounded-md px-2 duration-300 cursor-pointer bg-gray-700 text-white">
+                <i class="bi bi-search text-sm"></i>
+                <input type="text" placeholder="Search" class="text-[12px] ml-1 w-full bg-transparent focus:outline-none">
+            </div>
+            <a href="#" class="block">
+                <div class="p-2.5 mt-3 flex items-center justify-center rounded-md px-2 duration-300 hover:bg-blue-600 text-white">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="text-[12px] ml-1 text-gray-200 font-bold">Home</span>
+                </div>
+            </a>
+            <a href="#" class="block">
+                <div class="p-2.5 mt-3 flex items-center justify-center rounded-md px-2 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-bookmark-fill"></i>
+                    <span class="text-[12px] ml-1 text-gray-200 font-bold">Cart</span>
+                </div>
+            </a>
+            <div class="my-4 bg-gray-600 h-[1px]"></div>
+            <div class="p-2.5 mt-3 flex items-center justify-center rounded-md px-2 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span class="text-[12px] ml-1 text-gray-200 font-bold">Logout</span>
+            </div>
+        </div>
+    </nav>
+    <section class="ml-60">   
+    <div class="container mx-auto mt-10">
+        <h1 class="text-4xl font-bold mb-40 text-center">Dashboard</h1>
+        <div class="mb-5">
+            <div class="flex items-center space-x-4">
+                <div class="flex flex-col">
+                    <p class="font-bold">Name</p>
+                    <input type="text" id="nameInput" class="border p-2 rounded" placeholder="Enter some text">
+                </div>
+                <div class="flex flex-col">
+                    <p class="font-bold">Price</p>
+                    <input type="text" id="priceInput" class="border p-2 rounded" placeholder="Enter some text">
+                </div>
+                <div class="flex flex-col">
+                    <p class="font-bold">Img URL</p>
+                    <input type="text" id="imgUrlInput" class="border p-2 rounded" placeholder="Enter some text">
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-5">
+            <button id="addButton" class="bg-blue-500 text-white px-4 py-2 rounded">Add to List</button>
+        </div>
+
+        <section>
+        <h1 class="text-4xl font-bold mb-10 text-center">Product List</h1>
+        <ul id="itemList" class="pl-5 list-none"></ul>
+        </section>
+    </div>
+
+    <section>
+        <div class="mt-10 mb-10 text-center">
+            <h2 id="totalPrice" class="text-2xl font-bold">Total Price: 0.00 $</h2>
+        </div>
+    </section>  
+    
+    
+    </sections>
+</body>
+</html>
