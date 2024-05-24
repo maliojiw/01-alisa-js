@@ -157,12 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     itemList.addEventListener('change', calculateTotalPrice);
-
-    const addToCartButton = document.getElementById('addToCartButton');
-    addToCartButton.addEventListener('click', addToCart);
-
-
-    
     
     itemList.addEventListener('change', calculateTotalPrice);
 
