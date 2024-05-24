@@ -72,7 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const quantityInput = document.createElement('input');
         quantityInput.type = 'number';
         quantityInput.value = 1;
+        quantityInput.min = 1;
         quantityInput.classList.add('quantityInput', 'ml-2', 'w-16', 'border', 'border-gray-400', 'rounded', 'p-1', 'text-center');
+        quantityInput.addEventListener('input', () => {
+            if (quantityInput.value < 1) {
+                quantityInput.value = 1;
+            }
+        });
         newItem.appendChild(quantityInput);
     
         itemList.appendChild(newItem);
@@ -91,12 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const imgUrl = listItem.querySelector('img').src;
             const quantity = parseInt(quantityInput.value);
             for (let i = 0; i < quantity; i++) {
-                cartItems.push({ id: Date.now(), name: name, price: price, imgUrl: imgUrl });
+                if (i >= 0 )
+                cartItems.push({ id: Date.now(), name: name, price: price, imgUrl: imgUrl, quantity: quantity });
+                else 
+                i = 0
             }
         });
         renderCart();
     };
-
+    
     const renderCart = () => {
         cartList.innerHTML = '';
         let totalPrice = 0;
@@ -130,26 +139,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     checkOut.addEventListener('click', () => {
-        alert('Please pay what you ordered');
-        cartItems = [];
-        renderCart();
+        const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        checkedCheckboxes.forEach(checkbox => {
+            const listItem = checkbox.closest('li');
+            listItem.parentNode.removeChild(listItem);
+        });
+    
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    
+        calculateTotalPrice();
+    
+        alert('Please pay for what you ordered');
     });
-
-    const resetItemList = () => {
-        while (itemList.firstChild) {
-            itemList.removeChild(itemList.firstChild);
-        }
-        calculateTotalPrice(); 
-    };
+    
 
     itemList.addEventListener('change', calculateTotalPrice);
 
     const addToCartButton = document.getElementById('addToCartButton');
     addToCartButton.addEventListener('click', addToCart);
 
-    checkOut.addEventListener('click', () => {
-        alert('Please pay what you ordered');
-        resetItemList();
-    });
+
+    
+    
+    itemList.addEventListener('change', calculateTotalPrice);
 
 });
+  
+    
+    
+
+
+
